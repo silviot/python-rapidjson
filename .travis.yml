@@ -17,24 +17,18 @@
 # runtime with debug support present on the travis-ci platform at the moment.
 #
 # See https://mail.python.org/pipermail/wheel-builders/2017-August/000285.html
-
-matrix:
-  include:
-    - sudo: required
-      language: python
-      python: "3.6"
-      services:
-        - docker
-    - sudo: required
-      language: python
-      python: "3.4"
-      services:
-        - docker
-      env: RUN_DEBUG_PYTHON=true
-    - os: osx
-      osx_image: xcode9.2
-      language: python
-      python: "3.4"
+---
+language: python
+os: osx
+python:
+  - "3.4"
+  - "3.5"
+  - "3.6"
+osx_image:
+  - xcode9.2
+  - xcode9.1
+  - xcode9
+  - xcode8.3
 
 env:
   global:
