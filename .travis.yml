@@ -32,7 +32,7 @@ matrix:
         - docker
       env: RUN_DEBUG_PYTHON=true
     - os: osx
-      osx_image: xcode8.3
+      osx_image: xcode9.2
 
 env:
   global:
@@ -43,7 +43,6 @@ env:
       # Note: TWINE_PASSWORD is set in Travis settings
 
 install:
-  - if [ $TRAVIS_OS_NAME = osx ]; then brew upgrade python; fi
   - |
     if [ $RUN_DEBUG_PYTHON = true ]; then
       sudo apt-get install python3.4-dbg
